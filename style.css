@@ -1,0 +1,195 @@
+/*Importando fonte do googlefomrs*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/*resetando padrão CSS*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif; 
+    /*sempre que importar fonte, deve inserir nesta configuração a fonte que está inserindo, igual a cima*/
+}
+
+body {
+    background: #1B2029;
+    color: white;
+    font-weight: 500;               /*Especificando o peso ou a intensidade da fonte*/
+    display: flex;
+    min-height: 100vh;
+    min-width: 100vw;
+    /*Exemplo se a altura do navegador é 900px , 1vh equivale a 9px, ou seja
+     igual a 1/100 da altura da viewport--ajustando a altura da navegação*/
+}
+
+main {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main h1 {
+    color:aqua;  /*#8880FE*/
+    font-size: 3rem; /*definir na raiz do seu site font-size: 14p*/
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+
+main.social-media {
+    display: flex;
+    align-content: center;
+}
+
+main.social-media a {
+    text-decoration: none;
+}
+
+
+main .social-media img {
+    width: 36px;
+    margin-left: 3rem;
+}
+
+
+main .social-media a:first-child img {
+    margin-left: 0;
+    /*Fazendo com que a primeira imagem que está dentro da class social-media 
+    cuja a tag <a> pegando a <img> tenha a margin zero a esquerda*/
+}
+
+main .alternative {
+    margin-top: 1rem;
+    
+}
+
+main .alternative span {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color:aqua; /* rgba(255, 255, 255, 0.3);*/
+    position: relative;
+}
+
+/*usando pseu do elemento*/
+main .alternative span::before, main .alternative span::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 100px;
+    bottom: 50%;
+    right: 50px;
+    background: aqua; /*rgba(255, 255, 255, 0.3);*/
+}
+
+main .alternative span::after {
+    left: 50px;  /*fazendo o alinhamento a esquerda*/
+}
+
+main form {
+    display: flex;                  /*Para organizar os elementos*/
+    flex-direction: column;         /*posicionando em coluna*/
+    align-items: center;            /*alinahdo ao centro*/
+}
+
+main form label {
+    display: flex;
+    flex-direction: column;
+}
+
+main form label span {
+    font-size: 1.1rem;              /*fonte terá o tamanho equivalente de 16.8px .*/
+    margin-top: 2rem;           
+}
+
+main form input {
+    background:#161923;
+    width: 300px;
+    height: 50px;
+    padding: 0 0.5rem;
+    margin-top: 1rem;           /*espaçando do <span>*/
+    outline: none;              /*remove a bordar*/
+    color: rgb(14, 235, 235); /*rgba(166, 166, 166);*/
+    font-size: 1rem;
+    border: 1px solid #040B18;
+    border-radius: 8px;        /*definir bordas arredondadas*/
+}
+
+main form input[type="submit"] {
+    cursor: pointer;
+    width: 50%;
+    margin-top: 4rem;
+    border: none;
+    border-radius: 32px;
+    background:rgb(32, 117, 117) /*#6C63FF;*/
+    color: white;
+    font-size: 1.1rem;
+    transition: all .2s ease-in-out;
+    /**quando passo mouse, a cor muda em 2s*/
+
+}
+
+main form input[type="submit"]:hover {
+    background: rgb(34, 143, 143) /*#5952d4*/  
+}
+
+section.images {
+    width: 50vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 4rem;
+}
+
+section.images img {
+    width: 100%;
+}
+
+section.images .circle {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #E8CBC0,aqua); /* #636FA4*/
+    /* cria um efeito degradê em forma linear e é aplicada como uma imagem de fundo */
+
+    clip-path: circle(40% at right 80%);    /*estudar pouco mais sobre esta propriedade, posicionando a direita*/
+    z-index: -1; /*sobre põem os elementos*/
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+    section.images img {
+        width: 110%;
+    }
+
+    section.images .circle {
+        clip-path: circle(35% at right 80%);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    section.images {
+        display: none;
+        visibility: hidden;
+    }
+
+    main {
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    main h1 {
+        font-size: 2rem;
+    }
+
+    main .alternative span {
+        font-size: 0.8rem;
+    }
+
+    main form label span, main form input[type="submit"] {
+        font-size: 1rem;
+    }
+}
